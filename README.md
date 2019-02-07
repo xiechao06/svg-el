@@ -59,8 +59,18 @@ const svgEl = require('svg-el')
 
 #### parameters
 
-* tagName - a valid svg element tag
-* attributes - attributes to be set
+* tagName - a valid svg element tag, if not a valid svg element tag name, an error will be thrown
+* attributes - attributes to be set, attribute `style` could be an object and it will be converted to style string, or you could pass the style string too. eg.
+```javascript
+{
+  style: { fill: none, stroke: 'red' }
+}
+```
+and
+```javascript
+{ style: 'fill: none; stroke: red' }
+```
+are both acceptable.
 
 #### return value
 
