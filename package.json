@@ -1,6 +1,6 @@
 {
   "name": "svg-el",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a handy tool to create svg element",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
