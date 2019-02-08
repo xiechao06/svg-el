@@ -1,4 +1,6 @@
-import { stringify } from 'style-attr'
+// use default import, named import is not recoginized
+// by webpack
+import styleAttr from 'style-attr'
 import svgTags from 'svg-tags'
 
 export default function svgEl (tagName, attrs = {}, win = window) {
@@ -13,7 +15,7 @@ export default function svgEl (tagName, attrs = {}, win = window) {
         continue
       }
       if (k === 'style' && typeof attr === 'object') {
-        attr = stringify(attr)
+        attr = styleAttr.stringify(attr)
       }
       el.setAttribute(k, attr)
     }
