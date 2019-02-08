@@ -7,15 +7,15 @@ There's aleary a package [svg](https://www.npmjs.com/package/svg). But:
 
 1. at current time, [this package can't handle surrounding spaces](https://github.com/npm-dom/svg/issues/2), this forbid me to use template string (or I need to remember to trim the string, this is a little confusing).
 
-2. I feel a little inconvenient to write a bunch of template. instead of:
+2. I feel a little inconvenient to write a bunch of template string, especially for style attribute. instead of:
 
 ```javascript
 svg(`
   <rect
     width="${width}"
     height="${height}"
-    fill="none"
-    stroke="${stroke}" />
+    style="stroke: ${stroke}; fill: none;"
+  />
 `)
 ```
 
@@ -25,7 +25,10 @@ I prefer:
 svgEl('rect', {
     width,
     height,
-    stroke
+    style: {
+      stroke,
+      fill: 'none'
+    }
 })
 ```
 
@@ -71,6 +74,8 @@ and
 { style: 'fill: none; stroke: red' }
 ```
 are both acceptable.
+
+Attribute whose value is null/void 0 will be omitted
 
 #### return value
 
